@@ -1753,6 +1753,12 @@ button:focus {
     cursor: pointer;
 }
 
+.contact_form .submit_btn:disabled,
+.contact_form .submit_btn[disabled]{
+  filter: grayscale(1);
+  cursor: default;
+}
+
 
 /* Contact Success and error Area css
 ============================================================================================ */

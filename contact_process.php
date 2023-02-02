@@ -6,6 +6,19 @@
     $subject = $_REQUEST['subject'];
     $number = $_REQUEST['number'];
     $cmessage = $_REQUEST['message'];
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $captcha = $_REQUEST['token-response'];
+    $secretkey = "6Ldvo0gkAAAAAC-Vhw-dgSZvyTehvXmfqHh6f-4j"
+
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&remoteip=$ip");
+
+
+    $atributos = json_decode($response, TRUE)
+
+    if(!$atributos['success']){
+      echo "error";
+    }
+
 
     $headers = "From: $from";
 	$headers = "From: " . $from . "\r\n";
