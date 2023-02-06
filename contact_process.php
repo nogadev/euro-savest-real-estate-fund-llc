@@ -1,12 +1,12 @@
 <?php
 
-  if (isset($_REQUEST)){
+  if (isset($_POST)){
 $to = "marklm@eurusavest.com";
-  $from = $_REQUEST['email'];
-  $name = $_REQUEST['name'];
-  $subject = $_REQUEST['subject'];
-  $number = $_REQUEST['number'];
-  $cmessage = $_REQUEST['message'];
+  $from = $_POST['email'];
+  $name = $_POST['name'];
+  $csubject = $_POST['subject'];
+  $number = $_POST['number'];
+  $cmessage = $_POST['message'];
   
   $headers = "From: $from";
 	$headers = "From: " . $from . "\r\n";
