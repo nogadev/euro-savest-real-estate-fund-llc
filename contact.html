@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
 
-    <!-- ReCaptcha -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Ldvo0gkAAAAAE3fCwFZF1vVzkDHvp5kovo3F-Jn"></script>
+    
 
     <title>Eurosavest</title>
     <!-- Bootstrap CSS -->
@@ -117,7 +116,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
-                            <button type="submit" value="submit" id="btn-form"  class="btn submit_btn" id="btn-form" disabled>Send Message</button>
+                            <button type="submit" value="submit" id="btn-form"  class="btn submit_btn" id="btn-form" >Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -206,20 +205,7 @@
     <!--================End Contact Success and Error message Area =================-->
 
 
-    <!-- ReCaptcha -->
-    <script>
-      grecaptcha.ready(()=>{
-        grecaptcha.execute('6Ldvo0gkAAAAAE3fCwFZF1vVzkDHvp5kovo3F-Jn',{
-          action: 'contact'
-        }).then((token)=>{
-          const itoken = document.getElementById('token');
-          const btnForm = document.getElementById('btn-form')
-          itoken.value = token 
-          btnForm.disabled = false
-          /* console.log(token); */
-        })
-      })
-    </script>
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
