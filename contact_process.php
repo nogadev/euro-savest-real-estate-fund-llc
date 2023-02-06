@@ -1,29 +1,26 @@
 <?php
 
-    $to = "rockybd1995@gmail.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
-    
-
-
-    $headers = "From: $from";
+  if (isset($_REQUEST)){
+$to = "marklm@eurusavest.com";
+  $from = $_REQUEST['email'];
+  $name = $_REQUEST['name'];
+  $subject = $_REQUEST['subject'];
+  $number = $_REQUEST['number'];
+  $cmessage = $_REQUEST['message'];
+  
+  $headers = "From: $from";
 	$headers = "From: " . $from . "\r\n";
 	$headers .= "Reply-To: ". $from . "\r\n";
 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$headers .= "Content-Type: text/html; charset=utf-8\r\n";
 
-    $subject = "You have a message from your Bitmap Photography.";
 
-    $logo = 'img/logo.png';
-    $link = '#';
+  $subject = "You have a message from Eurusavest.com";
+  
 
 	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
 	$body .= "<table style='width: 100%;'>";
 	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
 	$body .= "</td></tr></thead><tbody><tr>";
 	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
 	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
@@ -35,5 +32,27 @@
 	$body .= "</body></html>";
 
     $send = mail($to, $subject, $body, $headers);
+
+    if ($send) {
+  $res = [
+   "err" => false,
+   "message" => "Tus datos han sido enviados"
+  ];
+ }else{
+  $res = [
+   "err" => true,
+   "message" => "Error al enviar tus datos. Intenta nuevamente"
+  ];
+ }
+
+ header("Access-Control-Allow-Origin:*");
+ header('Content-type: application/json');
+
+ echo json_encode($res);
+ exit;
+
+  }
+
+  
 
 ?>

@@ -64,7 +64,6 @@ $(document).ready(function () {
             url: "contact_process.php",
             success: function () {
               $("#contactForm :input").attr("disabled", "disabled");
-              $("#contactForm").resetForm();
               $("#contactForm").fadeTo("slow", 1, function () {
                 $(this).find(":input").attr("disabled", "disabled");
                 $(this).find("label").css("cursor", "default");
@@ -72,6 +71,7 @@ $(document).ready(function () {
                 $(".modal").modal("hide");
                 $("#success").modal("show");
               });
+              $("#contactForm").resetForm();
             },
             error: function () {
               $("#contactForm").fadeTo("slow", 1, function () {
