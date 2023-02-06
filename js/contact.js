@@ -34,6 +34,10 @@ $(document).ready(function () {
             required: true,
             minlength: 20,
           },
+          token: {
+            required: true,
+            minlength: 5,
+          },
         },
         messages: {
           name: {

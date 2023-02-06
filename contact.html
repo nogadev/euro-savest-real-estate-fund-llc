@@ -7,7 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
 
-    
+
+<!-- ReCaptcha -->
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc0wlokAAAAADxUBybuHBIBV1-up7XM_IUguNvN"></script> 
+    <script>
+      grecaptcha.ready(()=>{
+        grecaptcha.execute('6Lc0wlokAAAAADxUBybuHBIBV1-up7XM_IUguNvN',{
+          action: 'contact'
+        }).then((token)=>{
+          const itoken = document.getElementById('token');
+          const btnForm = document.getElementById('btn-form')
+          itoken.value = token 
+          btnForm.disabled = false
+          console.log(token);
+          
+        })
+      })
+    </script>
+
 
     <title>Eurosavest</title>
     <!-- Bootstrap CSS -->
@@ -116,7 +134,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
-                            <button type="submit" value="submit" id="btn-form"  class="btn submit_btn" id="btn-form" >Send Message</button>
+                            <button type="submit" value="submit" id="btn-form"  class="btn submit_btn" id="btn-form" disabled >Send Message</button>
                         </div>
                     </form>
                 </div>
